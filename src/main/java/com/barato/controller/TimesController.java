@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.barato.model.entities.Times;
@@ -28,14 +30,15 @@ public class TimesController {
 	}
 	
 	@PostMapping
-	public Times saveTeam(@RequestBody final Times timesModel) {
-		return timesRepository.save(timesModel);
+	public @ResponseBody Times saveTeam(@RequestBody final Times time) {
+		timesRepository.save(time);
+		return time;
 	}
 	
 	//READ - GET
 	@GetMapping
 	public List<Times> getAll(){
-		return times;
+		return timesRepository.findAll();
 	}
 	
 	

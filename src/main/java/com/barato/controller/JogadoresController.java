@@ -1,5 +1,6 @@
 package com.barato.controller;
 
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -43,6 +44,17 @@ public class JogadoresController {
 		
 		jo.setTime(time);		
 		return jogadoresRepository.save(jo);
+	}
+	
+	@PostMapping("/all")
+	public @ResponseBody List<Jogadores> saveAllJogadores(@RequestBody List<Jogadores> jo){
+		for(Jogadores j : jo) {
+			Optional<Times> idUpdate = timesRepository.findById(j.getTime().getId());
+			Times time = idUpdate.get();
+			j.setTime(time);
+		}
+		
+		return jogadoresRepository.saveAll(jo);
 	}
 	
 	@GetMapping

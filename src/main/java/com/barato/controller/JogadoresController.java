@@ -60,6 +60,11 @@ public class JogadoresController {
 		return jogadoresRepository.findByNomeContaining(nome);
 	}
 	
+	@GetMapping("/time/{id}")
+	public List<Jogadores> findByTimes(@PathVariable Long id){
+		return jogadoresRepository.findByTimes(id);
+	}
+	
 	@PutMapping("/{id}")
 	public @ResponseBody Jogadores updateJogador(@PathVariable Long id,@RequestBody Jogadores jog) {
 		

@@ -9,4 +9,6 @@ import com.barato.model.entities.Jogadores;
 public interface IJogadoresRepository extends JpaRepository<Jogadores, Long>{
 
 	List<Jogadores> findByNomeContaining(String nome);
+	
+	List<Jogadores> findByTimes(Long id);
 }

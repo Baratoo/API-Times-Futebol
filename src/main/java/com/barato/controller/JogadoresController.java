@@ -61,8 +61,11 @@ public class JogadoresController {
 	}
 	
 	@GetMapping("/time/{id}")
-	public List<Jogadores> findByTimes(@PathVariable Long id){
-		return jogadoresRepository.findByTimes(id);
+	public List<Jogadores> findByTime(@PathVariable Long id){
+		
+		Optional<Times> time = timesRepository.findById(id);
+	
+		return jogadoresRepository.findByTime(time.get());
 	}
 	
 	@PutMapping("/{id}")

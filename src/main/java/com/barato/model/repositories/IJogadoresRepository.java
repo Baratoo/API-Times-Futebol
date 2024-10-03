@@ -12,4 +12,6 @@ public interface IJogadoresRepository extends JpaRepository<Jogadores, Long>{
 	List<Jogadores> findByNomeContaining(String nome);
 	
 	List<Jogadores> findByTime(Times time);
+	
+	List<Jogadores> findByNumeroCamisa(int num);
 }

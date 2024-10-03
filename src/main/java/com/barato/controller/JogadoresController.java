@@ -80,6 +80,11 @@ public class JogadoresController {
 		return jogadoresRepository.findByTime(time.get());
 	}
 	
+	@GetMapping("/camisa/{num}")
+	public List<Jogadores> findByNumeroCamisa(@PathVariable int num){	
+		return jogadoresRepository.findByNumeroCamisa(num);
+	}
+	
 	@PutMapping("/{id}")
 	public @ResponseBody Jogadores updateJogador(@PathVariable Long id,@RequestBody Jogadores jog) {
 		

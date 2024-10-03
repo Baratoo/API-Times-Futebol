@@ -47,6 +47,11 @@ public class TimesController {
 		return timesRepository.findById(id);
 	}
 	
+	@GetMapping("/buscar/{nome}")
+	public List<Times> findByNomeContaining(@PathVariable String nome){
+		return timesRepository.findByNomeContaining(nome);
+	}
+	
 	@GetMapping("/country/{country}") //FUNÇÃO DECLARADA NA INTERFACE
 	public List<Times> findByCountry(@PathVariable String country){
 		return timesRepository.findByPais(country);

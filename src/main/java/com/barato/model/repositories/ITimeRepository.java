@@ -11,4 +11,6 @@ import com.barato.model.entities.Times;
 public interface ITimeRepository extends JpaRepository<Times, Long>{
 
 	List<Times> findByPais(String pais);
+	
+	List<Times> findByNomeContaining(String nome);
 }
